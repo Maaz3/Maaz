@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Dr.K.V.Subbareddy MBA institutions [KVSM/KVSB]</div>
+    <div class="content">
+      <form method="POST" name="google-sheet">
+          <div class="user-details">
+              <div class="input-box">
+                  <span class="details">Full Name</span>
+                  <input type="text" name="Full Name" placeholder="Enter your name" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">Phone Number</span>
+                  <input type="number" name="Phone Number" placeholder="Enter your number" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">Bachelors Degree</span>
+                  <input type="text" name="Bachelors Degree" placeholder="Enter your Degree Course" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">ICET Rank</span>
+                  <input type="text" name="ICET Rank" placeholder="Enter your ICET Rank" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">City/Town/Village</span>
+                  <input type="text" name="City/Town/Village" placeholder="Enter your Location" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">Query</span>
+                  <input type="text" name="Query" placeholder="Enter your query" required>
+              </div>
+          </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" value ="Male" id="dot-1">
+          <input type="radio" name="gender" value ="Female" id="dot-2">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Get Details" name="submit">
+        </div>
+      </form>
+    </div>
+  </div>
+
+           <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw-gIau5Msf9iFJK2xO3vYi9phKK_RzFjcjEDjaFlPCrF6Lzofs5B2L_d5c7Tc5lew/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+</body>
+</html>
